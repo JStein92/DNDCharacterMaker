@@ -1,0 +1,7 @@
+<h1>Select your class:</h1>
+
+<div *ngIf="doneLoading">
+  <div *ngFor="let class of classArr">
+    <li>Class: {{class.name}}, url: {{class.url}}</li>
+  </div>
+</div>

@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+html, body, .container{
+  background-color:#0f0d0a;
+    color:white;
+}
