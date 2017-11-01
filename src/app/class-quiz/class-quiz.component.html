@@ -1,0 +1,32 @@
+<h1 class="header-text page-header">What Character Class Should I Be?</h1>
+
+<div *ngIf="currentQuestion">
+  <h1 class="jumbotron">{{currentQuestion.title}}</h1>
+</div>
+
+<div *ngIf="currentQuestion" class="question">
+
+    <div class="choices">
+        <div  *ngFor = "let choice of currentQuestion.choices" (click)= "select(choice)" [class]="cardClass(choice)">
+          <div class="thumbnail text-center">
+             <img src="{{choice.image}}" alt="" class="img-responsive">
+             <div class="caption">
+                 <p>{{choice.caption}}</p>
+             </div>
+         </div>
+       </div>
+       </div>
+</div>
+
+<div *ngIf="selectedChoice" class="centered">
+  <button type="button" class="btn btn-success next-btn" name="button" (click)= "addPoints()">Next</button>
+</div>
+
+<div *ngIf="currentQuestionNumber == questions.length && !showResult">
+  <h1>Congrats, you finished the quiz!</h1>
+<button type="button" (click)="findResults()" name="button">Show my results!</button>
+</div>
+
+<div *ngIf="showResult">
+  <h1>You should be a {{resultText}}</h1>
+</div>

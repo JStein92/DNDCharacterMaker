@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CharacterService } from '../character.service';
 
 @Component({
@@ -8,7 +8,9 @@ import { CharacterService } from '../character.service';
   providers:[CharacterService]
 })
 export class ClassSelectComponent implements OnInit {
+  @Output() showQuizSender = new EventEmitter();
   allClasses;
+
   doneLoading = false;
   classArr = [];
   constructor(private characterService : CharacterService) { }
@@ -35,5 +37,11 @@ export class ClassSelectComponent implements OnInit {
       }
     );
   }
+
+  showQuiz() {
+    this.showQuizSender.emit();
+  }
+
+
 
 }
