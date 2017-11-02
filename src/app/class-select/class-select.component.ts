@@ -9,6 +9,7 @@ import { CharacterService } from '../character.service';
 })
 export class ClassSelectComponent implements OnInit {
   allClasses;
+  classSelected;
   doneLoading = false;
   classArr = [];
   constructor(private characterService : CharacterService) { }
@@ -31,9 +32,14 @@ export class ClassSelectComponent implements OnInit {
           return newClass;
         });
         console.log(this.classArr);
+        this.classSelected = this.classArr[0];
         this.doneLoading = true;
       }
     );
+  }
+
+  selectClass(classClicked){
+    this.classSelected = classClicked;
   }
 
 }

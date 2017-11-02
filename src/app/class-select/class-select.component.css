@@ -1,0 +1,18 @@
+.card{
+  color: black;
+}
+.charBtn{
+  margin:5px;
+  float: right;
+}
+.charBtnRow{
+  width: 100%;
+
+}
+.character-card{
+  width: 97%;
+  text-align: center;
+}
+.char-description img{
+  height: 500px;
+}
