@@ -9,8 +9,11 @@ import { CharacterService } from '../character.service';
 })
 export class ClassSelectComponent implements OnInit {
   @Output() showQuizSender = new EventEmitter();
+  @Output() raceChosenSender = new EventEmitter();
   allClasses;
   classSelected;
+  classChosen;
+  attributes;
   doneLoading = false;
   classArr = [];
   constructor(private characterService : CharacterService) { }
@@ -44,6 +47,29 @@ export class ClassSelectComponent implements OnInit {
   }
   showQuiz() {
     this.showQuizSender.emit();
+  }
+
+  unchooseCharacter(){
+    console.log("test");
+    this.classChosen = null;
+  }
+
+  chooseClass(){
+    this.characterService.getSelectedClass(this.classSelected.url).subscribe(
+      classChosen => {
+        this.classChosen = classChosen;
+      },
+      classChosen => {
+        console.log("ERROR: ",classChosen);
+      },
+      () => {
+        this.characterService.setSelectedClass(this.classChosen);
+      }
+    );
+  }
+
+  chooseRace(charData){
+    this.raceChosenSender.emit(charData);
   }
 
 }

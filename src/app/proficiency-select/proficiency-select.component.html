@@ -1,0 +1,56 @@
+<h1>
+  {{classChosen.name}}
+</h1>
+
+<h1>The {{classChosen.name}} is proficient in</h1>
+<div *ngFor="let proficiency of classChosen.proficiencies">
+  <p>{{proficiency.name}}</p>
+</div>
+
+<div *ngIf="classChosen.name == 'Monk'">
+  <h3>As a monk, you can choose to be proficient in an artisan tool kit, or a musical instrument.</h3>
+  <div  *ngFor="let proficiencyType of proficiencyTypes; let i = index">
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Choose {{proficiencyType.choose}} proficiencies</label>
+
+      <div *ngIf="i == 0">
+        <div *ngFor="let proficiencyChoice of proficiencyType.from[0].from">
+          <button [class]="proficiencyChoiceStyle(proficiencyChoice, i)" (click)="clickProficiencyChoice(proficiencyChoice, i)">{{proficiencyChoice.name}}</button>
+        </div>
+        <div *ngFor="let proficiencyChoice of proficiencyType.from[1].from">
+          <button [class]="proficiencyChoiceStyle(proficiencyChoice, i)" (click)="clickProficiencyChoice(proficiencyChoice, i)">{{proficiencyChoice.name}}</button>
+        </div>
+      </div>
+
+      <div *ngIf="i == 1">
+        <div *ngFor="let proficiencyChoice of proficiencyType.from">
+          <button [class]="proficiencyChoiceStyle(proficiencyChoice, i)" (click)="clickProficiencyChoice(proficiencyChoice, i)">{{proficiencyChoice.name}}</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf="classChosen.name != 'Monk'">
+<div  *ngFor="let proficiencyType of proficiencyTypes; let i = index">
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Choose {{proficiencyType.choose}} proficiencies</label>
+    <div *ngFor="let proficiencyChoice of proficiencyType.from">
+      <button [class]="proficiencyChoiceStyle(proficiencyChoice, i)" (click)="clickProficiencyChoice(proficiencyChoice, i)">{{proficiencyChoice.name}}</button>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<h1>Subclasses</h1>
+<div *ngFor="let subclass of classChosen.subclasses">
+  <p>{{subclass.name}}</p>
+</div>
+
+<button type="button" name="button" (click) = "back()">back</button>
+
+<button type="button" name="button" (click) = "chooseRace()">Choose Race</button>

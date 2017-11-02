@@ -6,12 +6,35 @@ import {Observable} from 'rxjs/Rx';
 @Injectable()
 export class CharacterService {
   allClasses;
+  selectedClass;
+  selectedProficiencies = [];
+
   constructor(private http: Http) {}
 
   getClasses(){
     return this.http.get('http://www.dnd5eapi.co/api/classes')
     .map(this.extractData);
   }
+
+  getSelectedClass(url){
+    return this.http.get(url)
+    .map(this.extractData);
+  }
+
+  setSelectedClass(chosenClass){
+    this.selectedClass = chosenClass;
+    console.log(this.selectedClass);
+  }
+
+  setClasses(classes){
+    this.allClasses = classes;
+  }
+
+  getChosenClass(){
+    console.log(this.selectedClass);
+    return this.selectedClass;
+  }
+
 
   private extractData(res: Response) {
 
@@ -28,8 +51,5 @@ export class CharacterService {
     return Observable.throw(errMsg);
   }
 
-  setClasses(classes){
-    this.allClasses = classes;
-  }
 
 }

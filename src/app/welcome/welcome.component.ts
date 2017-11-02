@@ -9,9 +9,15 @@ import { CharacterService } from '../character.service';
 export class WelcomeComponent implements OnInit {
   showCharacterSelect = false;
     takingQuiz = false;
+    showRaceSelect = false;
+    charData = this.charData;
   constructor(private characterService : CharacterService) { }
 
   ngOnInit() {
+  }
+  chooseRace(charData){
+    this.showRaceSelect = true;
+    this.charData = charData;
   }
 
   newCharacterBtnClick(){
@@ -20,6 +26,10 @@ export class WelcomeComponent implements OnInit {
 
   showQuiz(){
     this.takingQuiz = true;
+  }
+
+  leaveQuiz(){
+    this.takingQuiz = false;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-class-quiz',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./class-quiz.component.css']
 })
 export class ClassQuizComponent implements OnInit {
+@Output() backSender = new EventEmitter();
 
   barbarianPoints = {name: "Barbarian", points: 0};
   bardPoints = {name: "Bard", points: 0};
@@ -61,6 +62,17 @@ export class ClassQuizComponent implements OnInit {
 
   }
 
+  back(){
+    this.resetPoints();
+    this.backSender.emit();
+  }
+
+  resetPoints(){
+    for (let i = 0; i < this.pointsArr.length; i++) {
+        this.pointsArr[i].points = 0;
+    };
+  }
+
   cardClass(choice){
     if (choice == this.selectedChoice){
       return "card choice-card selected-choice";
@@ -90,6 +102,7 @@ export class ClassQuizComponent implements OnInit {
       return b.points - a.points;
     });
     this.resultText = this.pointsArr[0].name;
+    this.resetPoints();
   }
 
 }
