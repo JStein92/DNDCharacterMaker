@@ -1,3 +1,5 @@
+
+<div *ngIf ="!showCharacterSelect">
 <h1>D&D Character Maker</h1>
 
 <button (click) = "newCharacterBtnClick()" *ngIf="!showCharacterSelect"  type="button" class="btn btn-success" name="button" >New Character </button>
@@ -5,5 +7,13 @@
 
 
 <div *ngIf ="showCharacterSelect">
-  <app-class-select></app-class-select>
+
+  <div *ngIf="!takingQuiz">
+  <app-class-select (showQuizSender)="showQuiz()"></app-class-select>
+  </div>
+
+  <div *ngIf="takingQuiz">
+    <app-class-quiz></app-class-quiz>
+  </div>
+
 </div>

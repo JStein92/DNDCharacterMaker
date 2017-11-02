@@ -1,0 +1,62 @@
+.img-responsive {
+  max-width:100%;
+  max-height:100%;
+
+}
+.jumbotron{
+  text-align: center;
+  font-size: 2em;
+  color: black;
+  text-shadow: 2px 2px 2px white;
+}
+.header-text{
+  padding: 20px;
+}
+.caption {
+    position: absolute;
+    top: 20%;
+    left: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 100%;
+    text-shadow: 4px 4px 2px black;
+    font-size: 2em;
+    text-align: center;
+    background-color: rgba(5, 5, 20, 0.5);
+
+}
+
+
+.choice-card{
+  margin: 10px;
+  min-width: 400px;
+  max-width: 600px;
+  display: inline-block;
+  border: 10px solid white;
+}
+.choice-card:hover{
+  cursor: pointer;
+
+}
+.card{
+  margin: 10px;
+}
+
+.choices{
+  text-align: center;
+  display: inline-block;
+}
+.selected-choice{
+  border: 15px solid green;
+}
+.card-group{
+  display: inline-flex;
+  width: 100%;
+}
+.next-btn{
+  font-size: 4em;
+  margin: 10px;
+}
+.centered{
+  text-align: center;
+}
