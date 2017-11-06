@@ -7,11 +7,13 @@ import { CharacterService } from '../character.service';
   providers: [CharacterService]
 })
 export class CharacterSheetComponent implements OnInit {
+  @Input() chosenClass;
+  @Input() chosenProficiencies;
 
   constructor(private characterService : CharacterService) { }
 
   ngOnInit() {
-
+console.log(this.chosenProficiencies);
 
   }
 

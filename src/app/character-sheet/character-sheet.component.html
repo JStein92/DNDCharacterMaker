@@ -1,1 +1,4 @@
 <h1>character sheet component</h1>
+<h3 *ngIf="chosenClass">class: {{chosenClass.name}}</h3>
+<h2>proficiencies: </h2>
+<p *ngFor="let chosenProf of chosenProficiencies">{{chosenProf.name}}</p>

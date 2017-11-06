@@ -39,8 +39,8 @@ maxChoicesArr = [];
   }
 
   chooseRace(){
-
-    this.chooseRaceSender.emit();
+    var allSelectedProficiences = this.selectedChoicesArr[0].concat(this.selectedChoicesArr[1]);
+    this.chooseRaceSender.emit(allSelectedProficiences);
   }
   proficiencyChoiceStyle(proficiencyChoice, proficiencyTypeIndex){
     if (this.selectedChoicesArr[proficiencyTypeIndex].includes(proficiencyChoice)){

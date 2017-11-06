@@ -67,5 +67,5 @@
 </div>
 
 <div *ngIf="classChosen">
-  <app-proficiency-select [classChosen] = "classChosen" (backSender) = "unchooseCharacter()" (chooseRaceSender) = "chooseRace()"></app-proficiency-select>
+  <app-proficiency-select [classChosen] = "classChosen" (backSender) = "unchooseCharacter()" (chooseRaceSender) = "chooseRace($event)"></app-proficiency-select>
 </div>
