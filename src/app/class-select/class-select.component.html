@@ -1,5 +1,3 @@
-
-
 <div *ngIf="doneLoading && !classChosen">
 
   <h1>Who will you be? Choose a starting class, or <button type="button" (click)="showQuiz()" name="button">Take the Quiz!</button></h1>
@@ -10,7 +8,7 @@
     </div>
 </div>
 
-  <div class="character-card">
+  <div class="character-card" *ngIf="classSelected">
     <div class="char-description">
       <h2 class="char-title">The {{classSelected.name}}</h2>
         <div *ngIf="classSelected.name == 'Barbarian'"class="card-text">
@@ -67,5 +65,9 @@
 </div>
 
 <div *ngIf="classChosen">
-  <app-proficiency-select [classChosen] = "classChosen" (backSender) = "unchooseCharacter()" (chooseRaceSender) = "chooseRace($event)"></app-proficiency-select>
+  <app-proficiency-select *ngIf="!proficienciesChosen" [classChosen] = "classChosen" (backSender) = "unchooseCharacter()" (saveProficienciesSender) = "saveProficienciesSender($event)" (chooseSpellsSender)="chooseSpells()"></app-proficiency-select>
+
+
+    <app-spell-select *ngIf="proficienciesChosen" [classChosen]="classChosen"></app-spell-select>
+
 </div>

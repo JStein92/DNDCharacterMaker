@@ -8,16 +8,16 @@
 
 <div *ngIf="currentQuestion" class="question">
 
-    <div class="choices">
-        <div  *ngFor = "let choice of currentQuestion.choices" (click)= "select(choice)" [class]="cardClass(choice)">
-          <div class="thumbnail text-center">
-             <img src="{{choice.image}}" alt="" class="img-responsive">
-             <div class="caption">
-                 <p>{{choice.caption}}</p>
-             </div>
-         </div>
+  <div class="choices">
+      <div  *ngFor = "let choice of currentQuestion.choices" (click)= "select(choice)" [class]="cardClass(choice)">
+        <div class="thumbnail text-center">
+           <img src="{{choice.image}}" alt="" class="img-responsive">
+           <div class="caption">
+               <p>{{choice.caption}}</p>
+           </div>
        </div>
-       </div>
+     </div>
+     </div>
 </div>
 
 <div *ngIf="selectedChoice" class="centered">

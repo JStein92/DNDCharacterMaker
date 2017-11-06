@@ -53,4 +53,6 @@
 
 <button type="button" name="button" (click) = "back()">back</button>
 
-<button type="button" name="button" (click) = "chooseRace()">Next</button>
+<button *ngIf="classChosen.name == 'Bard' || classChosen.name == 'Cleric' || classChosen.name == 'Druid' || classChosen.name == 'Warlock' || classChosen.name == 'Sorcerer' || classChosen.name == 'Wizard'"type="button" class="btn btn-success" name="button" (click)="chooseSpells(classChosen)">Choose spells</button>
+
+<button *ngIf="classChosen.name == 'Barbarian' || classChosen.name ==  'Paladin' || classChosen.name == 'Ranger' || classChosen.name == 'Rogue' || classChosen.name == 'Monk' || classChosen.name == 'Fighter' "type="button" name="button" (click) = "chooseEquipment()">Choose equipment</button>

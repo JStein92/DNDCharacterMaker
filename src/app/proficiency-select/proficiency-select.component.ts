@@ -9,7 +9,8 @@ export class ProficiencySelectComponent implements OnInit {
 @Input() classChosen;
 @Output() backSender = new EventEmitter();
 @Output() chooseRaceSender = new EventEmitter();
-
+@Output() chooseSpellsSender = new EventEmitter();
+@Output() saveProficienciesSender = new EventEmitter();
 proficiencyTypes = [];
 
 selectedProficiencyChoices = [];
@@ -38,10 +39,21 @@ maxChoicesArr = [];
     this.backSender.emit();
   }
 
-  chooseRace(){
-    var allSelectedProficiences = this.selectedChoicesArr[0].concat(this.selectedChoicesArr[1]);
-    this.chooseRaceSender.emit(allSelectedProficiences);
+  chooseSpells(classChosen){
+    this.saveSelectedProficiencies();
+    this.chooseSpellsSender.emit();
   }
+
+  saveSelectedProficiencies(){
+      var allSelectedProficiences = this.selectedChoicesArr[0].concat(this.selectedChoicesArr[1]);
+      this.saveProficienciesSender.emit(allSelectedProficiences);
+  }
+
+  chooseRace(){
+    this.saveSelectedProficiencies();
+    this.chooseRaceSender.emit();
+  }
+
   proficiencyChoiceStyle(proficiencyChoice, proficiencyTypeIndex){
     if (this.selectedChoicesArr[proficiencyTypeIndex].includes(proficiencyChoice)){
       return "btn btn-info";

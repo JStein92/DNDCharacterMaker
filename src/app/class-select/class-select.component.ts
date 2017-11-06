@@ -18,6 +18,7 @@ export class ClassSelectComponent implements OnInit {
 
   attributes;
   classSelected;
+  proficienciesChosen = false;
 
   constructor() { }
 
@@ -41,7 +42,11 @@ export class ClassSelectComponent implements OnInit {
     this.unchooseClassSender.emit();
   }
 
-  chooseRace(chosenProficiencies){
+  chooseSpells(){
+    this.proficienciesChosen = true;
+  }
+
+  saveProficienciesSender(chosenProficiencies){
     this.proficienciesChosenSender.emit(chosenProficiencies);
   }
 

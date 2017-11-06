@@ -62,7 +62,6 @@ export class WelcomeComponent implements OnInit {
   }
 
   proficienciesChosen(chosenProficiencies){
-    this.showRaceSelect = true;
     this.chosenProficiencies = chosenProficiencies;
   }
 

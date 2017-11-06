@@ -1,0 +1,22 @@
+.card, .card-header{
+  color: black;
+  display: inline-block;
+  padding: 10px;
+  width: 500px;
+  margin:10px;
+}
+.spell-select{
+  text-align: center;
+}
+.modal-body{
+  color:black;
+}
+.modal-title{
+  color:black;
+}
+.selected{
+  background-color: #b8dcfc;
+}
+.not-selected{
+  background-color: #ffeabc;
+}

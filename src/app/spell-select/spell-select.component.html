@@ -1,0 +1,37 @@
+<h1>Select Spells for {{classChosen.name}}</h1>
+<div class="spell-select">
+
+<div *ngIf="maxCantrips > 0">
+  <h1>Choose {{maxCantrips}} starter cantrips</h1>
+  <div *ngFor="let cantrip of cantripsArr; let i = index" [class] = "btnStyle(cantrip, i)">
+      <button type="button" name="button" (click)="selectCantrip(cantrip, i)">Select</button>
+        <span>{{cantrip}}</span>
+        <button type="button" (click)="showDescription(cantrip,content)">(?)</button>
+  </div>
+</div>
+
+<div *ngIf="maxSpells > 0">
+  <h1>Choose {{maxSpells}} starter spells</h1>
+  <div  *ngFor="let spell of spellsArr; let i = index" [class] = "btnStyle(spell)" >
+    <button type="button" name="button" (click)="selectSpell(spell, i)">Select</button>
+      <span>{{spell}}</span>
+      <button type="button" (click)="showDescription(spell, content)">(?)</button>
+  </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{description.name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p *ngFor="let desc of description.desc">{{desc}}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>
+
+</div>
