@@ -12,6 +12,7 @@ import { RaceSelectComponent } from './race-select/race-select.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { masterFirebaseConfig } from './api-keys';
 import { SpellSelectComponent } from './spell-select/spell-select.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -35,6 +36,7 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     NgbModule.forRoot()
   ],
   providers: [],

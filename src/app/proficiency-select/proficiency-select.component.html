@@ -49,29 +49,60 @@
 </div>
 </div>
 
-<!--Class specific information-->
-<h2>{{classChosen.name}} features</h2>
-<div *ngIf="classChosen.name == 'Barbarian'">
-  <div class="card-deck">
+<div *ngIf="classChosen.name == 'Rogue'">
+  <h1>As a rogue, you can choose to double your proficiency in two of your selected skill proficiencies.</h1>
+  <div class="row">
+    <div *ngFor="let proficiency of selectedChoicesArr[0]">
+      <button type="button" [class]="doubledProficienciesStyle(proficiency)" name="button" (click)="doubleProficiencyClick(proficiency)">{{proficiency.name}}</button>
+    </div>
+  </div>
+</div>
 
-    <div class="card">
-    <h3 class="card-header">Rage</h3>
+<!--Class specific information-->
+<h2>{{classChosen.name}} unique features</h2>
+  <div class="card-group">
+    <div class="card" *ngFor="let feature of featureArray">
+    <h3 class="card-header">{{feature.name}}</h3>
       <div class="card-block">
-        <p class="card-text">In battle, you fight with primal ferocity. On your turn, you can enter a rage as a Bonus Action.</p>
-        <a href="https://roll20.net/compendium/dnd5e/Barbarian#toc_4" class="btn btn-primary" target="_blank">Learn More</a>
+        <p class="card-text">{{feature.description}}</p>
+      </div>
+      <div class="card-footer text-muted">
+          <a href = "{{feature.url}}" class="btn btn-primary" target="_blank">Learn More</a>
       </div>
   </div>
+</div>
 
-  <div class="card">
-  <h3 class="card-header">Unarmored Defense</h3>
-    <div class="card-block">
-      <p class="card-text">You do not need to wear armor to be tough in battle! If you choose to not wear armor, you get some benefits.</p>
-      <a href="https://roll20.net/compendium/dnd5e/Barbarian#toc_5" class="btn btn-primary" target="_blank">Learn More</a>
+<div *ngIf="classChosen.name == 'Fighter'">
+  <h1>As a fighter, you can also choose a style of fighting.</h1>
+  <div class="row">
+    <div *ngFor="let specialty of fighterSpecialties" class="col-md-4">
+      <div class="card">
+        <img class="card-img-top fighter-specialty" src="/src/wwwroot/img/rolling-dices.png" alt="Card image cap" (click)="selectFighterSpecialty(specialty)">
+        <div class="card-block">
+          <h4 class="card-title">{{specialty.name}}</h4>
+          <p class="card-text">{{specialty.description}}</p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
+<div *ngIf="classChosen.name == 'Ranger'">
+  <h1>As a ranger, you are particularly familiar with one type of natural Environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain. <a href="https://roll20.net/compendium/dnd5e/Classes:Ranger#toc_5"> (Learn more)</a></h1>
+  <div class="row">
+    <div *ngFor="let terrain of terrains" class="col-md-3">
+      <div class="card">
+        <img class="card-img-top fighter-specialty" src="/src/wwwroot/img/rolling-dices.png" alt="Card image cap" (click)="selectTerrain(terrain)">
+        <div class="card-block">
+          <h4 class="card-title">{{terrain}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+
+
+
 
 <!--
 <h1>Subclasses</h1>

@@ -18,6 +18,10 @@ export class CharacterSheetComponent implements OnInit {
 
   }
 
+  countInArray(array, what) {
+    return array.filter(item => item == what).length;
+  }
+
   toggleCharacterSheet(){
     if (this.showCharacterSheet){
       this.showCharacterSheet = false;

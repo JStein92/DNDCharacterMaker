@@ -7,7 +7,31 @@
 
   <div *ngIf="chosenProficiencies.length>0">
     <h2>proficiencies: </h2>
-    <p *ngFor="let chosenProf of chosenProficiencies">{{chosenProf.name}}</p>
+    <div *ngFor="let chosenProf of chosenProficiencies; let i = index">
+
+      <div *ngIf="chosenClass.name=='Fighter'">
+          <p *ngIf="i == chosenProficiencies.length-1">Fighter Specialty:{{chosenProf.name}} - {{chosenProf.description}}</p>
+          <p *ngIf= "i != chosenProficiencies.length-1">{{chosenProf.name}}</p>
+      </div>
+
+      <div *ngIf="chosenClass.name=='Ranger'">
+          <p *ngIf="i == chosenProficiencies.length-1">Terrain Adeptness: {{chosenProf}}</p>
+          <p *ngIf= "i != chosenProficiencies.length-1">{{chosenProf.name}}</p>
+      </div>
+
+
+
+      <div *ngIf="chosenClass.name!='Fighter' && chosenClass.name!='Ranger'">
+        <p>{{chosenProf.name}}</p>
+      </div>
+    </div>
+    <div *ngIf="chosenClass.name=='Rogue'">
+        <h2>Doubled Proficiency Bonus:</h2>
+        <ul>
+          <li>{{chosenProficiencies[chosenProficiencies.length-2].name}}</li>
+          <li>{{chosenProficiencies[chosenProficiencies.length-1].name}}</li>
+        </ul>
+    </div>
   </div>
 
 
