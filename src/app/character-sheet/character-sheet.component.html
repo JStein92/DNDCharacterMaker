@@ -1,4 +1,23 @@
-<h1>character sheet component</h1>
-<h3 *ngIf="chosenClass">class: {{chosenClass.name}}</h3>
-<h2>proficiencies: </h2>
-<p *ngFor="let chosenProf of chosenProficiencies">{{chosenProf.name}}</p>
+
+<button type="button" (click)="toggleCharacterSheet()" name="button">Show Character Sheet</button>
+
+<div *ngIf="showCharacterSheet">
+  <h1 >Character Sheet:</h1>
+  <h3 *ngIf="chosenClass">class: {{chosenClass.name}}</h3>
+
+  <div *ngIf="chosenProficiencies.length>0">
+    <h2>proficiencies: </h2>
+    <p *ngFor="let chosenProf of chosenProficiencies">{{chosenProf.name}}</p>
+  </div>
+
+
+  <div *ngIf="chosenCantrips">
+    <h2>cantrips: </h2>
+    <p *ngFor="let cantrip of chosenCantrips">{{cantrip}}</p>
+  </div>
+
+  <div *ngIf="chosenSpells">
+    <h2>spells: </h2>
+    <p *ngFor="let spell of chosenSpells">{{spell}}</p>
+  </div>
+</div>

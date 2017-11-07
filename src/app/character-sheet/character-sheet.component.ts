@@ -9,12 +9,20 @@ import { CharacterService } from '../character.service';
 export class CharacterSheetComponent implements OnInit {
   @Input() chosenClass;
   @Input() chosenProficiencies;
-
+  @Input() chosenCantrips;
+  @Input() chosenSpells;
+  showCharacterSheet = false;
   constructor(private characterService : CharacterService) { }
 
   ngOnInit() {
-console.log(this.chosenProficiencies);
 
   }
 
+  toggleCharacterSheet(){
+    if (this.showCharacterSheet){
+      this.showCharacterSheet = false;
+    } else{
+      this.showCharacterSheet=true;
+    }
+  }
 }

@@ -11,19 +11,25 @@ export class ClassSelectComponent implements OnInit {
   @Input() classArr = [];
   @Input () classChosen;
   @Input() doneLoading;
+  spellsChosenBool = false;
   @Output() chooseClassSender = new EventEmitter();
   @Output () unchooseClassSender = new EventEmitter();
   @Output() showQuizSender = new EventEmitter();
   @Output() proficienciesChosenSender = new EventEmitter();
-
+ @Output() spellsChosenSender = new EventEmitter();
+ @Output() classFinishedSender = new EventEmitter();
   attributes;
   classSelected;
   proficienciesChosen = false;
 
   constructor() { }
 
+  unchooseProficiencies(){
+    this.proficienciesChosen = false;
+  }
+
   chooseClass(classChosen){
-      this.chooseClassSender.emit(this.classSelected);
+    this.chooseClassSender.emit(this.classSelected);
   }
 
   ngOnInit() {
@@ -44,6 +50,15 @@ export class ClassSelectComponent implements OnInit {
 
   chooseSpells(){
     this.proficienciesChosen = true;
+  }
+
+  chooseRace(){
+    this.classFinishedSender.emit();
+  }
+
+  spellsChosen(spells){
+    this.spellsChosenBool = true;
+    this.spellsChosenSender.emit(spells);
   }
 
   saveProficienciesSender(chosenProficiencies){

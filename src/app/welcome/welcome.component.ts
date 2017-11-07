@@ -16,6 +16,8 @@ export class WelcomeComponent implements OnInit {
     classChosen;
     doneLoading= false;
     chosenProficiencies = [];
+    chosenCantrips;
+    chosenSpells;
 
   constructor(private characterService : CharacterService) { }
 
@@ -55,6 +57,19 @@ export class WelcomeComponent implements OnInit {
         this.characterService.setSelectedClass(this.classChosen);
       }
     );
+  }
+
+  spellsChosen(spells){
+    this.chosenCantrips = spells[0];
+    if (spells[1]){
+      this.chosenSpells = spells[1];
+    }
+    this.showRaceSelect=true;
+
+  }
+
+  classFinished(){
+    this.showRaceSelect = true;
   }
 
   unchooseClass(){

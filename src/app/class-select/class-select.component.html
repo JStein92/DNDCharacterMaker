@@ -65,9 +65,8 @@
 </div>
 
 <div *ngIf="classChosen">
-  <app-proficiency-select *ngIf="!proficienciesChosen" [classChosen] = "classChosen" (backSender) = "unchooseCharacter()" (saveProficienciesSender) = "saveProficienciesSender($event)" (chooseSpellsSender)="chooseSpells()"></app-proficiency-select>
+  <app-proficiency-select *ngIf="!proficienciesChosen" [classChosen] = "classChosen" (backSender) = "unchooseCharacter()" (saveProficienciesSender) = "saveProficienciesSender($event)" (chooseSpellsSender)="chooseSpells()" (chooseRaceSender) = "chooseRace()"></app-proficiency-select>
 
 
-    <app-spell-select *ngIf="proficienciesChosen" [classChosen]="classChosen"></app-spell-select>
-
+  <app-spell-select *ngIf="proficienciesChosen" [classChosen]="classChosen" (unchooseSpellsSender) = "unchooseProficiencies()" (spellsChosenSender)="spellsChosen($event)"></app-spell-select>
 </div>

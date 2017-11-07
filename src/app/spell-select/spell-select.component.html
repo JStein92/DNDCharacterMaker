@@ -19,6 +19,9 @@
   </div>
 </div>
 
+<button type="button" name="button" (click)="back()">Back</button>
+<button type="button" class="btn btn-success" name="button" (click)="spellsChosen()">Review Class Choices</button>
+
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title">{{description.name}}</h4>

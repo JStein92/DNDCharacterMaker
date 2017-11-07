@@ -10,11 +10,13 @@
 
   <div *ngIf="!takingQuiz">
 
-  <app-class-select *ngIf="!showRaceSelect" [doneLoading] = "doneLoading" (showQuizSender)="showQuiz()" (chooseClassSender) = "chooseClass($event)" (unchooseClassSender) = "unchooseClass()" (proficienciesChosenSender) = "proficienciesChosen($event)" [allClasses] = "allClasses" [classArr] = "classArr" [classChosen] = "classChosen"></app-class-select>
+  <app-class-select *ngIf="!showRaceSelect" [doneLoading] = "doneLoading" (showQuizSender)="showQuiz()" (chooseClassSender) = "chooseClass($event)" (unchooseClassSender) = "unchooseClass()" (proficienciesChosenSender) = "proficienciesChosen($event)" [allClasses] = "allClasses" [classArr] = "classArr" [classChosen] = "classChosen" (spellsChosenSender) = "spellsChosen($event)" (classFinishedSender)="classFinished()"></app-class-select>
 
   <app-race-select *ngIf="showRaceSelect"></app-race-select>
 
-  <!-- <app-character-sheet [chosenClass] = "classChosen" [chosenProficiencies] = "chosenProficiencies"></app-character-sheet> -->
+  <app-character-sheet [chosenClass] = "classChosen" [chosenProficiencies] = "chosenProficiencies" [chosenCantrips] = "chosenCantrips" [chosenSpells] = "chosenSpells"></app-character-sheet>
+
+
 
   </div>
 

@@ -1,6 +1,12 @@
 <h1>
   {{classChosen.name}}
 </h1>
+<h2>Hit die: {{classChosen.hit_die}}</h2>
+
+<h1>The {{classChosen.name}} has advantages when rolling saving throws for</h1>
+<div *ngFor="let savingThrow of classChosen.saving_throws">
+  <li>{{savingThrow.name}}</li>
+</div>
 
 <h1>The {{classChosen.name}} is proficient in</h1>
 <div *ngFor="let proficiency of classChosen.proficiencies">
@@ -41,18 +47,40 @@
     </div>
   </div>
 </div>
-
 </div>
 
+<!--Class specific information-->
+<h2>{{classChosen.name}} features</h2>
+<div *ngIf="classChosen.name == 'Barbarian'">
+  <div class="card-deck">
 
+    <div class="card">
+    <h3 class="card-header">Rage</h3>
+      <div class="card-block">
+        <p class="card-text">In battle, you fight with primal ferocity. On your turn, you can enter a rage as a Bonus Action.</p>
+        <a href="https://roll20.net/compendium/dnd5e/Barbarian#toc_4" class="btn btn-primary" target="_blank">Learn More</a>
+      </div>
+  </div>
 
+  <div class="card">
+  <h3 class="card-header">Unarmored Defense</h3>
+    <div class="card-block">
+      <p class="card-text">You do not need to wear armor to be tough in battle! If you choose to not wear armor, you get some benefits.</p>
+      <a href="https://roll20.net/compendium/dnd5e/Barbarian#toc_5" class="btn btn-primary" target="_blank">Learn More</a>
+    </div>
+</div>
+
+</div>
+</div>
+
+<!--
 <h1>Subclasses</h1>
 <div *ngFor="let subclass of classChosen.subclasses">
   <p>{{subclass.name}}</p>
-</div>
+</div> -->
 
 <button type="button" name="button" (click) = "back()">back</button>
 
-<button *ngIf="classChosen.name == 'Bard' || classChosen.name == 'Cleric' || classChosen.name == 'Druid' || classChosen.name == 'Warlock' || classChosen.name == 'Sorcerer' || classChosen.name == 'Wizard'"type="button" class="btn btn-success" name="button" (click)="chooseSpells(classChosen)">Choose spells</button>
+<button *ngIf="classChosen.name == 'Bard' || classChosen.name == 'Cleric' || classChosen.name == 'Druid' || classChosen.name == 'Warlock' || classChosen.name == 'Sorcerer' || classChosen.name == 'Wizard'"type="button" class="btn btn-success" name="button" (click)="chooseSpells(classChosen)">Choose Spells</button>
 
-<button *ngIf="classChosen.name == 'Barbarian' || classChosen.name ==  'Paladin' || classChosen.name == 'Ranger' || classChosen.name == 'Rogue' || classChosen.name == 'Monk' || classChosen.name == 'Fighter' "type="button" name="button" (click) = "chooseEquipment()">Choose equipment</button>
+<button *ngIf="classChosen.name == 'Barbarian' || classChosen.name ==  'Paladin' || classChosen.name == 'Ranger' || classChosen.name == 'Rogue' || classChosen.name == 'Monk' || classChosen.name == 'Fighter' "type="button" name="button" class="btn btn-success"(click) = "chooseRace()">Choose Race</button>

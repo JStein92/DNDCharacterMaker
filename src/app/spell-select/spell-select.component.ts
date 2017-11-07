@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import {Observable} from 'rxjs/Rx';
@@ -11,6 +11,8 @@ import {NgbModule,ModalDismissReasons,NgbModal} from '@ng-bootstrap/ng-bootstrap
 export class SpellSelectComponent implements OnInit {
 
 @Input() classChosen;
+@Output() unchooseSpellsSender = new EventEmitter();
+@Output() spellsChosenSender = new EventEmitter();
 spellInfo;
 
 cantripsArr = [];
@@ -36,11 +38,11 @@ closeResult: string;
 
     } else if (this.classChosen.name =="Cleric"){
       this.maxCantrips = 3;
-      this.cantripsArr = ["Guidance", "Sacred Flame", "Light", "Mending", "Spare the Dying", "Thaumaturgy", "Mending", "Resistance"];
+      this.cantripsArr = ["Guidance", "Sacred Flame", "Light", "Mending", "Spare the Dying", "Thaumaturgy",  "Resistance"];
 
     } else if (this.classChosen.name == "Druid"){
       this.maxCantrips = 2;
-      this.cantripsArr = ["Guidance", "Druidcraft", "Produce Flame", "Mending", "Resistance", "Shillelagh", "Mending", "Poison Spray"];
+      this.cantripsArr = ["Guidance", "Druidcraft", "Produce Flame", "Mending", "Resistance", "Shillelagh", "Poison Spray"];
 
     } else if (this.classChosen.name == "Sorcerer"){
       this.maxCantrips = 4;
@@ -64,6 +66,15 @@ closeResult: string;
       this.spellsArr = ["Alarm","Burning Hands","Charm Person","Color Spray","Comprehend Languages","Detect Magic","Disguise Self","Expeditious Retreat","False Life","Feather Fall","Floating Disk","Fog Cloud","Grease","Hideous Laughter","Identify","Illusory Script","Jump","Longstrider","Mage Armor","Magic Missile","Protection from Evil and Good","Shield", "Silent Image", "Sleep", "Thunderwave", "Unseen Servant"];
     }
   }
+
+  back(){
+    this.unchooseSpellsSender.emit()
+  }
+  spellsChosen(){
+    var spellsChosenArr = [this.selectedCantrips, this.selectedSpells];
+    this.spellsChosenSender.emit(spellsChosenArr);
+  }
+
   open(content) {
       this.modalService.open(content).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
@@ -154,7 +165,7 @@ closeResult: string;
 
     }
   }
-  
+
   selectSpell(spell){
     if (!this.selectedSpells.includes(spell) && this.selectedSpells.length < this.maxSpells){
         this.selectedSpells.push(spell)
