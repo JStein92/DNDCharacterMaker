@@ -1,3 +1,5 @@
+<div class="container">
+
 
 <div *ngIf ="!showCharacterSelect">
 <h1>D&D Character Maker</h1>
@@ -5,19 +7,19 @@
 <button (click) = "newCharacterBtnClick()" *ngIf="!showCharacterSelect"  type="button" class="btn btn-success" name="button" >New Character </button>
 
 </div>
-
+</div>
 <div *ngIf ="showCharacterSelect">
 
-  <div *ngIf="!takingQuiz">
 
-  <app-class-select *ngIf="!showRaceSelect" [doneLoading] = "doneLoading" (showQuizSender)="showQuiz()" (chooseClassSender) = "chooseClass($event)" (unchooseClassSender) = "unchooseClass()" (proficienciesChosenSender) = "proficienciesChosen($event)" [allClasses] = "allClasses" [classArr] = "classArr" [classChosen] = "classChosen" (spellsChosenSender) = "spellsChosen($event)" (classFinishedSender)="classFinished()"></app-class-select>
-
-  <app-race-select *ngIf="showRaceSelect"></app-race-select>
-
-  <app-character-sheet [chosenClass] = "classChosen" [chosenProficiencies] = "chosenProficiencies" [chosenCantrips] = "chosenCantrips" [chosenSpells] = "chosenSpells"></app-character-sheet>
+    <div *ngIf="!takingQuiz">
+      <div class="container">
+        <app-class-select *ngIf="!showRaceSelect" [doneLoading] = "doneLoading" (showQuizSender)="showQuiz()" (chooseClassSender) = "chooseClass($event)" (unchooseClassSender) = "unchooseClass()" (proficienciesChosenSender) = "proficienciesChosen($event)" [allClasses] = "allClasses" [classArr] = "classArr" [classChosen] = "classChosen" (spellsChosenSender) = "spellsChosen($event)" (classFinishedSender)="classFinished()"></app-class-select>
 
 
+      </div>
+      <app-race-select *ngIf="showRaceSelect"></app-race-select>
 
+      <app-character-sheet [chosenClass] = "classChosen" [chosenProficiencies] = "chosenProficiencies" [chosenCantrips] = "chosenCantrips" [chosenSpells] = "chosenSpells"></app-character-sheet>
   </div>
 
   <app-class-quiz *ngIf="takingQuiz" (backSender) = "leaveQuiz()"></app-class-quiz>

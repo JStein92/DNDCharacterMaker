@@ -1,0 +1,13 @@
+.race{
+  height: 300px;
+  width: 500px;
+  overflow:hidden;
+  display: inline-block;
+}
+.race-image{
+  object-fit:cover;
+}
+.row{
+  margin: auto;
+  width: 50%;
+}

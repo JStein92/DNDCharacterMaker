@@ -1,2 +1,15 @@
+<div class="container">
+
 <h1>Congrats on finishing your class selection!</h1>
 <h2>Now it's time to choose a race to play as.</h2>
+</div>
+
+  <div class="row">
+  <div class="race" *ngFor="let race of races" (click)="clickRace(race)">
+    <img class="race-image" src={{race.img}} alt="Card image cap">
+    <!-- <div class="card-block">
+      <h4 class="card-title">{{race.name}}</h4>
+      <p class="card-text">{{race.description}}</p>
+    </div> -->
+  </div>
+</div>
