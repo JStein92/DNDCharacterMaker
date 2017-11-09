@@ -276,7 +276,9 @@ export class RacesClass {
       1
     ],
     feats:[{
-
+      name: "No special feats",
+      type: "Trait",
+      description: "Humans are well rounded, but do not have any special feats to offer."
     }],
     ancestry:[{
     }],

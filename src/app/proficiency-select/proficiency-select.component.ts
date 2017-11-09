@@ -58,6 +58,9 @@ maxChoicesArr = [];
 
   ngOnInit() {
     this.proficiencyTypes = this.classChosen.proficiency_choices;
+    for (let i = 0; i < this.proficiencyTypes[0].from.length; i++) {
+        this.proficiencyTypes[0].from[i].name = this.proficiencyTypes[0].from[i].name.replace(/Skill: /, "");
+    }
 
     this.proficiencyChoicesMax = this.proficiencyTypes[0].choose;
     if (this.proficiencyTypes[1]){
@@ -175,9 +178,9 @@ maxChoicesArr = [];
 
   proficiencyChoiceStyle(proficiencyChoice, proficiencyTypeIndex){
     if (this.selectedChoicesArr[proficiencyTypeIndex].includes(proficiencyChoice)){
-      return "btn btn-info";
+      return "inline-block proficiency-icon selected";
     } else {
-      return "btn btn-warning";
+      return "inline-block proficiency-icon not-selected";
     }
 
   }

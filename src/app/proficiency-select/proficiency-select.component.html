@@ -1,3 +1,6 @@
+<div class="container">
+
+
 <h1>
   {{classChosen.name}}
 </h1>
@@ -8,10 +11,21 @@
   <li>{{savingThrow.name}}</li>
 </div>
 
-<h1>The {{classChosen.name}} is proficient in</h1>
-<div *ngFor="let proficiency of classChosen.proficiencies">
-  <p>{{proficiency.name}}</p>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"> <img class="card-img-top proficiency-image" src="/assets/img/icons/proficiency.png" alt="Card image cap"> {{classChosen.name}} Proficiencies</h4>
+    <p class="card-text">When you have proficiency in a type of armor, it means you get <a href = "https://roll20.net/compendium/dnd5e/Armor#content" target = "_blank">bonuses</a> while you are wearing it. Proficiency in a type of weapon lets you wield that type of weapon <a href = "https://roll20.net/compendium/dnd5e/Weapons#toc_1"  target = "_blank">effectively</a>.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <div *ngFor="let proficiency of classChosen.proficiencies">
+      <li class="list-group-item proficiency">{{proficiency.name}}</li>
+    </div>
+  </ul>
 </div>
+
+
+
+
 
 <div *ngIf="classChosen.name == 'Monk'">
   <h3>As a monk, you can choose to be proficient in an artisan tool kit, or a musical instrument.</h3>
@@ -39,15 +53,22 @@
 </div>
 
 <div *ngIf="classChosen.name != 'Monk'">
-<div  *ngFor="let proficiencyType of proficiencyTypes; let i = index">
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Choose {{proficiencyType.choose}} proficiencies</label>
-    <div *ngFor="let proficiencyChoice of proficiencyType.from">
-      <button [class]="proficiencyChoiceStyle(proficiencyChoice, i)" (click)="clickProficiencyChoice(proficiencyChoice, i)">{{proficiencyChoice.name}}</button>
+  <div class="card">
+    <div  *ngFor="let proficiencyType of proficiencyTypes; let i = index">
+        <h1 *ngIf ="i == 0" class="proficiency-card-title">Choose {{proficiencyType.choose}} skills you want to be proficient in</h1>
+        <h1 *ngIf ="i == 1" class="proficiency-card-title">Choose {{proficiencyType.choose}} instruments you want to be proficient in</h1>
+          <div [class]="proficiencyChoiceStyle(proficiencyChoice, i)" (click)="clickProficiencyChoice(proficiencyChoice, i)" *ngFor="let proficiencyChoice of proficiencyType.from">
+             <img *ngIf = "i ==0" class="proficiency-icon" src="/assets/img/icons/{{proficiencyChoice.name.toLowerCase()}}.png" alt="">
+              <img *ngIf = "i ==1" class="proficiency-icon" src="/assets/img/icons/performance.png" alt="">
+             <div class="caption">
+               <p>{{proficiencyChoice.name}}</p>
+             </div>
+           </div>
+      </div>
     </div>
-  </div>
 </div>
-</div>
+
+
 
 <div *ngIf="classChosen.name == 'Rogue'">
   <h1>As a rogue, you can choose to double your proficiency in two of your selected skill proficiencies.</h1>
@@ -113,3 +134,5 @@
 <button *ngIf="classChosen.name == 'Bard' || classChosen.name == 'Cleric' || classChosen.name == 'Druid' || classChosen.name == 'Warlock' || classChosen.name == 'Sorcerer' || classChosen.name == 'Wizard'"type="button" class="btn btn-success" name="button" (click)="chooseSpells(classChosen)">Choose Spells</button>
 
 <button *ngIf="classChosen.name == 'Barbarian' || classChosen.name ==  'Paladin' || classChosen.name == 'Ranger' || classChosen.name == 'Rogue' || classChosen.name == 'Monk' || classChosen.name == 'Fighter' "type="button" name="button" class="btn btn-success"(click) = "chooseRace()">Choose Race</button>
+
+</div>

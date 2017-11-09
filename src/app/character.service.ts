@@ -23,7 +23,6 @@ export class CharacterService {
 
   setSelectedClass(chosenClass){
     this.selectedClass = chosenClass;
-    console.log(this.selectedClass);
   }
 
   setClasses(classes){
@@ -31,7 +30,6 @@ export class CharacterService {
   }
 
   getChosenClass(){
-    console.log(this.selectedClass);
     return this.selectedClass;
   }
 

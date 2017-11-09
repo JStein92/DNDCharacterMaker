@@ -1,13 +1,76 @@
-.race{
-  height: 300px;
-  width: 500px;
-  overflow:hidden;
-  display: inline-block;
-}
+
 .race-image{
-  object-fit:cover;
+ margin:2px 0px;
+ width: 100%;
+
 }
-.row{
-  margin: auto;
+.race-image-container{
+   position: relative;
+   margin: auto;
+   width: 100%;
+   height: 700px;
+}
+.caption-name, .caption-description, .caption-feats,.caption-stats {
+    position: absolute;
+
+    padding: 1%;
+    text-shadow: 2px 2px 1px black;
+    text-align: center;
+    background-color: rgba(5, 5, 20, 0.25);
+}
+
+.caption-name{
+  top: 0%;
+      left: 0;
+  width: 100%;
+}
+
+.caption-description{
+
+  top: 15%;
+      left: 0;
   width: 50%;
+}
+.caption-feats{
+
+  bottom: 0%;
+      left: 0;
+  width:100%;
+}
+.caption-stats{
+  line-height: 2px;
+  top: 15%;
+  width: 30%;
+      right: 0;
+}
+
+.row{
+ padding:0;
+ width:80%;
+ margin:20px auto;
+
+ overflow: hidden;
+ margin-bottom: 0px;
+}
+
+.thumbnails{
+   padding:0;
+   width:80%;
+
+   text-align: center;
+   margin: auto;
+   margin-top: 5px;
+
+}
+.race{
+  width: 200px;
+  height: 100px;
+  display:inline-block;
+  overflow: hidden;
+  object-position: center;
+
+}
+.race-image-thumbnail{
+  width: 100%;
+  object-fit: contain;
 }

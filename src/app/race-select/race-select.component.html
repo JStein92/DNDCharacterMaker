@@ -1,15 +1,41 @@
 <div class="container">
-
-<h1>Congrats on finishing your class selection!</h1>
-<h2>Now it's time to choose a race to play as.</h2>
+<h2>Choose a race</h2>
 </div>
 
-  <div class="row">
+<div class="row">
+  <div class="race-image-container">
+    <img class="race-image" src={{selectedRace.img}} alt="Card image cap">
+    <div class="caption-name">
+        <h2>{{selectedRace.name}}</h2>
+    </div>
+    <div class="caption-description">
+        <p>{{selectedRace.description}}</p>
+    </div>
+    <div class="caption-description">
+        <p>{{selectedRace.description}}</p>
+    </div>
+    <div class="caption-stats">
+      <h5>Stat Increases</h5>
+      <hr/>
+        <p>Strength: {{selectedRace.abilityScoreIncreases[0]}}</p>
+        <p>Dexterity: {{selectedRace.abilityScoreIncreases[1]}}</p>
+        <p>Constitution: {{selectedRace.abilityScoreIncreases[2]}}</p>
+        <p>Intelligence: {{selectedRace.abilityScoreIncreases[3]}}</p>
+        <p>Wisdom: {{selectedRace.abilityScoreIncreases[4]}}</p>
+        <p>Charisma: {{selectedRace.abilityScoreIncreases[5]}}</p>
+    </div>
+    <div *ngIf = "selectedRace.feats.length > 0" class="caption-feats">
+      <div *ngFor="let feat of selectedRace.feats">
+        <h5>{{feat.name}}</h5>
+        <p>{{feat.description}}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="thumbnails">
   <div class="race" *ngFor="let race of races" (click)="clickRace(race)">
-    <img class="race-image" src={{race.img}} alt="Card image cap">
-    <!-- <div class="card-block">
-      <h4 class="card-title">{{race.name}}</h4>
-      <p class="card-text">{{race.description}}</p>
-    </div> -->
+    <img class="race-image-thumbnail" src={{race.img}} alt="Card image cap">
   </div>
 </div>

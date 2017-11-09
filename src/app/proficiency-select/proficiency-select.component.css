@@ -13,8 +13,64 @@
 .card{
   color:black;
   margin: 10px;
+  background-color:#edeeef;
 }
 .fighter-specialty{
   max-width: 100%;
   max-height: 100%;
+}
+.proficiency-row{
+  background-color: grey;
+}
+.proficiency-image{
+  width: 80px;
+  height: 80px;
+}
+.proficiency-card-title{
+  margin-bottom: 0px;
+  padding: 10px;
+  color: black;
+    background-color: #dae5e3;
+}
+.proficiency-header{
+  background-color:#eaf9f6;
+}
+.card-title{
+  background-color: #dae5e3;
+}
+.inline-block{
+  display: inline-block;
+  background-color:  #e5eae9;
+  margin: 10px;
+  position: relative;
+}
+.proficiency{
+  background-color: #e5eae9;
+}
+.proficiency-icon{
+  height: 100px;
+
+}
+.selected{
+border: 5px solid green;
+}
+.not-selected{
+border: 5px solid white; 
+}
+.card-text{
+  padding: 20px;
+  font-size: 1.2em;
+}
+.card-block{
+  padding: 0px;
+}
+.caption {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 1em;
+    text-align: center;
+    background-color: rgba(5, 5, 20, 0.5);
+    color:white;
 }

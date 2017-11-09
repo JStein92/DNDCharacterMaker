@@ -38,7 +38,6 @@ export class WelcomeComponent implements OnInit {
           let newClass = {name: that.allClasses.results[key].name, url: that.allClasses.results[key].url};
           return newClass;
         });
-        console.log(this.classArr);
         this.doneLoading = true;
       }
     );

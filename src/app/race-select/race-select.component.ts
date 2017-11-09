@@ -7,7 +7,7 @@ import {RacesClass} from '../races-class';
 })
 export class RaceSelectComponent implements OnInit {
   races = new RacesClass().races;
-  selectedRace = null;
+  selectedRace = this.races[0];
   constructor() { }
 
   ngOnInit() {
@@ -15,7 +15,7 @@ export class RaceSelectComponent implements OnInit {
   }
 
   clickRace(race){
-
+    this.selectedRace = race;
   }
 
 }

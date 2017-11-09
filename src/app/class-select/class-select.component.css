@@ -1,18 +1,73 @@
-.card{
-  color: black;
+.class-image{
+ height: 100%;
+margin:0 -100%;
 }
-.charBtn{
-  margin:5px;
-  float: right;
+.class-image-container{
+   position: relative;
+   margin: auto;
+   width: 100%;
+height: 500px;
+   text-align: center;
 }
-.charBtnRow{
-  width: 100%;
+.caption-name, .caption-description, .caption-feats,.caption-stats, .caption-next {
+    position: absolute;
+
+    text-align: center;
 
 }
-.character-card{
-  width: 97%;
-  text-align: center;
+
+.caption-name{
+  top: 0%;
+  left: 0;
+  width: 100%;
+  font-size: 3em;
+  padding: 1%;
+  text-shadow: 2px 2px 1px black;
+      background-color: rgba(5, 5, 20, 0.5);
 }
-.char-description img{
-  height: 500px;
+
+.caption-description{
+  bottom: 15%;
+  left: 0;
+  width: 75%;
+  font-size: 2em;
+  padding: 1%;
+  text-shadow: 2px 2px 1px black;
+      background-color: rgba(5, 5, 20, 0.5);
+}
+.caption-next{
+  bottom: 0;
+  right:  0;
+}
+.btn-next{
+  font-size: 2em;
+}
+
+.row{
+ padding:0;
+ width:80%;
+ margin:20px auto;
+height: 500px; overflow: hidden;
+ margin-bottom: 0px;
+ object-position: center;
+}
+
+.thumbnails{
+   padding:0;
+   width:80%;
+   text-align: center;
+   margin: auto;
+   margin-top: 5px;
+}
+.class{
+  width: 200px;
+  height: 100px;
+  display:inline-block;
+  overflow: hidden;
+  object-position: center;
+
+}
+.class-image-thumbnail{
+  height: 100%;
+  margin:0 -100%;
 }
