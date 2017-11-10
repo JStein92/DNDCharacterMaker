@@ -55,7 +55,14 @@
 border: 5px solid green;
 }
 .not-selected{
-border: 5px solid white; 
+border: 5px solid white;
+}
+.headerThin{
+  background-color: #dae5e3;
+  padding: 20px;
+  margin: 10px;
+  margin-top: 20px;
+  color: black;
 }
 .card-text{
   padding: 20px;
@@ -73,4 +80,12 @@ border: 5px solid white;
     text-align: center;
     background-color: rgba(5, 5, 20, 0.5);
     color:white;
+}
+
+.jumbotron{
+  background-color:grey;
+    font-size: 2em;
+}
+.jumbotron h1{
+  font-size: 2em;
 }

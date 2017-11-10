@@ -18,7 +18,9 @@ export class WelcomeComponent implements OnInit {
     chosenProficiencies = [];
     chosenCantrips;
     chosenSpells;
-
+    charNameValid = false;
+    characterName = "";
+    charName;
   constructor(private characterService : CharacterService) { }
 
   ngOnInit() {
@@ -56,6 +58,15 @@ export class WelcomeComponent implements OnInit {
         this.characterService.setSelectedClass(this.classChosen);
       }
     );
+  }
+  onKey(event: any){
+    if (this.charName.length > 0){
+      this.charNameValid = true;
+    } else{
+      this.charNameValid = false;
+    }
+    // console.log(this.charName)
+
   }
 
   spellsChosen(spells){

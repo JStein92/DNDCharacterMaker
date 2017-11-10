@@ -1,0 +1,27 @@
+.splash{
+  background-image: url("/assets/img/background.jpg");
+  height: 100%;
+  background-position: center;
+  text-align: center;
+
+}
+.footer{
+  position: fixed;
+  padding-top: 50%;
+}
+#title{
+  padding-top: 10%;
+  font-size: 6em;
+  text-shadow: 2px 2px 3px black;
+}
+.btn-new-char{
+
+
+}
+.container{
+  padding: 20px;
+}
+.create-btn{
+  margin: 20px;
+  font-size: 2em;
+}

@@ -57,6 +57,25 @@ maxChoicesArr = [];
   constructor() { }
 
   ngOnInit() {
+
+    this.classChosen.saving_throws.map(function(stat){
+      console.log(stat);
+      if (stat.name == "STR"){
+        return stat.name += " (Strength)";
+      } else if (stat.name == "WIS"){
+        return stat.name += " (Wisdom)";
+      }else if (stat.name == "CON"){
+        return stat.name += " (Constitution)";
+      }else if (stat.name == "DEX"){
+        return stat.name += " (Dexterity)";
+      }else if (stat.name == "CHA"){
+        return stat.name += " (Charisma)";
+      }else if (stat.name == "INT"){
+        return stat.name += " (Intelligence)";
+      }
+
+    });
+
     this.proficiencyTypes = this.classChosen.proficiency_choices;
     for (let i = 0; i < this.proficiencyTypes[0].from.length; i++) {
         this.proficiencyTypes[0].from[i].name = this.proficiencyTypes[0].from[i].name.replace(/Skill: /, "");

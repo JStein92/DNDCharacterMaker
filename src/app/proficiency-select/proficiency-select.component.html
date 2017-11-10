@@ -1,14 +1,19 @@
+<div class="jumbotron">
+  <h1>
+    Welcome, {{classChosen.name}}.
+  </h1>
+</div>
 <div class="container">
 
-
-<h1>
-  {{classChosen.name}}
-</h1>
-<h2>Hit die: {{classChosen.hit_die}}</h2>
-
-<h1>The {{classChosen.name}} has advantages when rolling saving throws for</h1>
-<div *ngFor="let savingThrow of classChosen.saving_throws">
-  <li>{{savingThrow.name}}</li>
+<div class="card">
+    <div class="card-block">
+        <h4><img class="card-img-top proficiency-image" src="/assets/img/rolling-dices.png" alt="Card image cap"> The {{classChosen.name}} has advantages when rolling <a href = "https://roll20.net/compendium/dnd5e/Ability%20Scores#toc_35" target = "_blank">saving throws </a>for:</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <div  *ngFor="let savingThrow of classChosen.saving_throws">
+        <li class="list-group-item proficiency">{{savingThrow.name}}</li>
+      </div>
+    </ul>
 </div>
 
 <div class="card">
@@ -80,7 +85,10 @@
 </div>
 
 <!--Class specific information-->
-<h2>{{classChosen.name}} unique features</h2>
+<div class="headerThin">
+  <h2>{{classChosen.name}} unique features</h2>
+</div>
+
   <div class="card-group">
     <div class="card" *ngFor="let feature of featureArray">
     <h3 class="card-header">{{feature.name}}</h3>

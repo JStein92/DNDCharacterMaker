@@ -1,8 +1,16 @@
-<div class="container">
-  <div *ngIf ="!showCharacterSelect">
-    <h1>DND Character Maker</h1>
 
-    <button (click) = "newCharacterBtnClick()" *ngIf="!showCharacterSelect && classArr.length>0"  type="button" class="btn btn-success" name="button" >New Character </button>
+<div class="splash" *ngIf ="!showCharacterSelect">
+  <div >
+    <h1 id="title">DND Character Maker</h1>
+
+    <div class="container" *ngIf="!showCharacterSelect && classArr.length>0">
+      <div class="input-group input-group-lg" >
+      <input type="text" class="form-control" placeholder="Your character's name..." aria-describedby="sizing-addon1" [(ngModel)] ="charName" (keyup)= "onKey($event)">
+      </div>
+
+      <button class="btn create-btn btn-success" *ngIf="charNameValid" (click) = "newCharacterBtnClick()" id="sizing-addon1">Start!</button>
+    </div>
+
   </div>
 </div>
 

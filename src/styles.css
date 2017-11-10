@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-html, body, .container{
+html, body{
   background-color:#0f0d0a;
     color:white;
+    height: 100%;
+    font-family: Barlow;
+
 }
+@font-face { font-family: "Barlow"; src: url("./assets/fonts/Barlow.ttf"); }
